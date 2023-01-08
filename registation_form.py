@@ -1,5 +1,6 @@
 import customtkinter
 
+
 def slider_event(value):
     print(value)
 
@@ -8,13 +9,30 @@ def optionmenu_callback(choice):
 
 customtkinter.set_default_color_theme("custom_theme.json")
 customtkinter.set_appearance_mode("light")
+#customtkinter.set_appearance_mode("dark")
 
 root = customtkinter.CTk()
 root.geometry(f"{1520}x{780}+{0}+{0}")
 root.title("Internship Finder")
 
+frame0 = customtkinter.CTkFrame(master=root,corner_radius=10,height=50)
+frame0.grid(row=0, column=0,padx=20, pady=(5,0), columnspan=3, sticky="new")
+
+label_organization = customtkinter.CTkLabel(master=frame0,text="IntellWarriors", anchor="w",width=120,font=("Arial",22))
+label_organization.grid(row=0, column=0, padx=20, pady=8)
+
+label_topic = customtkinter.CTkLabel(master=frame0,text="Details Submission Form",width=120,font=("Arial",22))
+label_topic.grid(row=0, column=1, padx=(417,20), pady=8)
+
+label_username = customtkinter.CTkLabel(master=frame0,text="Nadun Hirushan",width=120,font=("Arial",22))
+label_username.grid(row=0, column=2, padx=(330,20), pady=8)
+
+logout_button = customtkinter.CTkButton(master=frame0,width=70,height=30,border_width=0, corner_radius=8,text="Sign Out",font=("Arial",17))
+logout_button.grid(row=0, column=3, padx=(10,0), pady=5,sticky="e")
+#---------------------------------------------------------------------------------------------------------------------------
+
 frame1 = customtkinter.CTkFrame(master=root,corner_radius=10)
-frame1.grid(row=0, column=0,padx=20, pady=20)
+frame1.grid(row=1, column=0,padx=20, pady=(10,15))
 
 label_profile = customtkinter.CTkLabel(master=frame1,text="Profile Details",fg_color=("#68aced","#1f538d"),width=400,height=30,corner_radius=8,font=("Arial",20))
 label_profile.grid(row=0, column=0, columnspan=2, padx=10, pady=(20,5))
@@ -29,19 +47,24 @@ label_uni_id.grid(row=2, column=0, padx=20, pady=8)
 textbox_uni_id = customtkinter.CTkTextbox(master=frame1,width=250,height=5,font=("Arial",17))
 textbox_uni_id.grid(row=2, column=1, padx=(10,20), pady=5)
 
+label_gender = customtkinter.CTkLabel(master=frame1,text="Gender",anchor="w",width=120,font=("Arial",17))
+label_gender.grid(row=3, column=0, padx=20, pady=8)
+textbox_gender = customtkinter.CTkTextbox(master=frame1,width=250,height=5,font=("Arial",17))
+textbox_gender.grid(row=3, column=1, padx=(10,20), pady=5)
+
 label_email = customtkinter.CTkLabel(master=frame1,text="Email",anchor="w",width=120,font=("Arial",17))
-label_email.grid(row=3, column=0, padx=20, pady=8)
+label_email.grid(row=4, column=0, padx=20, pady=8)
 textbox_email = customtkinter.CTkTextbox(master=frame1,width=250,height=5,font=("Arial",17))
-textbox_email.grid(row=3, column=1, padx=(10,20), pady=5)
+textbox_email.grid(row=4, column=1, padx=(10,20), pady=5)
 
 label_tel = customtkinter.CTkLabel(master=frame1,text="Telephone",anchor="w",width=120,font=("Arial",17))
-label_tel.grid(row=4, column=0, padx=20, pady=8)
+label_tel.grid(row=5, column=0, padx=10, pady=8)
 textbox_tel = customtkinter.CTkTextbox(master=frame1,width=250,height=5,font=("Arial",17))
-textbox_tel.grid(row=4, column=1, padx=(10,20), pady=(5,20))
+textbox_tel.grid(row=5, column=1, padx=(10,20), pady=(5,15))
 
 #--------------------------------------------------------------------------------------------------------------------------------------
 frame2 = customtkinter.CTkFrame(master=root,corner_radius=10)
-frame2.grid(row=1, column=0,padx=20, pady=(0,20))
+frame2.grid(row=2, column=0,padx=20, pady=(0,15))
 
 label_link = customtkinter.CTkLabel(master=frame2,text="Profile Details",fg_color=("#68aced","#1f538d"),width=400,height=30,corner_radius=8,font=("Arial",20))
 label_link.grid(row=0, column=0, columnspan=2, padx=10, pady=(20,5))
@@ -54,11 +77,16 @@ textbox_linkedin.grid(row=1, column=1, padx=(10,20), pady=5)
 label_github = customtkinter.CTkLabel(master=frame2,text="GitHub",anchor="w",width=120,font=("Arial",17))
 label_github.grid(row=2, column=0, padx=20, pady=8)
 textbox_github = customtkinter.CTkTextbox(master=frame2,width=250,height=5,font=("Arial",17))
-textbox_github.grid(row=2, column=1, padx=(10,20), pady=(5,20))
+textbox_github.grid(row=2, column=1, padx=(10,20), pady=5)
+
+label_other_link = customtkinter.CTkLabel(master=frame2,text="Other",anchor="w",width=120,font=("Arial",17))
+label_other_link.grid(row=3, column=0, padx=10, pady=8)
+textbox_other_link = customtkinter.CTkTextbox(master=frame2,width=250,height=5,font=("Arial",17))
+textbox_other_link.grid(row=3, column=1, padx=(10,20), pady=(5,15))
 
 #--------------------------------------------------------------------------------------------------------------------------------
 frame3 = customtkinter.CTkFrame(master=root,corner_radius=10,height=300)
-frame3.grid(row=2, column=0,padx=20, pady=(0,20),sticky="ns")
+frame3.grid(row=3, column=0,padx=20, pady=(0,15),sticky="n")
 
 label_language = customtkinter.CTkLabel(master=frame3,text="Languages",fg_color=("#68aced","#1f538d"),width=400,height=30,corner_radius=8,font=("Arial",20))
 label_language.grid(row=0, column=0, columnspan=2, padx=10, pady=(20,5))
@@ -82,7 +110,7 @@ slider_tamil.grid(row=3, column=1, padx=(10,20), pady=5)
 #-------------------------------------------------------------------------------------------------------------------------------------
 
 frame4 = customtkinter.CTkFrame(master=root,corner_radius=10)
-frame4.grid(row=0, column=1,rowspan=2, pady=20, sticky="new")
+frame4.grid(row=1, column=1, pady=(10,20), sticky="new")
 
 label_education = customtkinter.CTkLabel(master=frame4,text="Education Details",fg_color=("#68aced","#1f538d"),width=600,height=30,corner_radius=8,font=("Arial",20))
 label_education.grid(row=0, column=0, columnspan=2, padx=10, pady=(20,5))
@@ -114,24 +142,18 @@ label_gpa.grid(row=3, column=0, padx=20, pady=8)
 textbox_gpa = customtkinter.CTkTextbox(master=frame4,width=450,height=5,font=("Arial",17))
 textbox_gpa.grid(row=3, column=1, padx=(10,20), pady=5)
 
-label_activity = customtkinter.CTkLabel(master=frame4,text="Activities",anchor="w",width=120,font=("Arial",17))
-label_activity.grid(row=4, column=0, padx=20, pady=8, sticky="n")
-textbox_activity = customtkinter.CTkTextbox(master=frame4,width=450,height=100,font=("Arial",17))
-textbox_activity.grid(row=4, column=1, padx=(10,20), pady=5)
-
 label_project = customtkinter.CTkLabel(master=frame4,text="Projects",anchor="w",width=120,font=("Arial",17))
 label_project.grid(row=5, column=0, padx=20, pady=8, sticky="n")
-textbox_project = customtkinter.CTkTextbox(master=frame4,width=450,height=100,font=("Arial",17))
-textbox_project.grid(row=5, column=1, padx=(10,20), pady=(5,20))
+textbox_project = customtkinter.CTkTextbox(master=frame4,width=450,height=75,font=("Arial",17))
+textbox_project.grid(row=5, column=1, padx=(10,20), pady=(5,15))
 
 #-----------------------------------------------------------------------------------------------------------------------------
 
 frame5 = customtkinter.CTkFrame(master=root,corner_radius=10)
-frame5.grid(row=2, column=1, pady=(0,20), sticky="new")
+frame5.grid(row=2, column=1, rowspan=2,pady=(0,20), sticky="new")
 
 label_skill = customtkinter.CTkLabel(master=frame5,text="Skills",fg_color=("#68aced","#1f538d"),width=600,height=30,corner_radius=8,font=("Arial",20))
 label_skill.grid(row=0, column=0, columnspan=3, padx=20, pady=(20,5))
-
 
 """def checkbox_event():
     print("checkbox toggled, current value:", check_var.get())"""
@@ -166,22 +188,27 @@ checkbox9 = customtkinter.CTkCheckBox(master=frame5, text="CTkCheckBox", command
 checkbox9.grid(row=3, column=2,padx=20, pady=10)
 
 checkbox10 = customtkinter.CTkCheckBox(master=frame5, text="CTkCheckBox", command=checkbox_event, onvalue="on", offvalue="off")
-checkbox10.grid(row=4, column=0,padx=20, pady=10)
+checkbox10.grid(row=4, column=0,padx=20, pady=(10,13))
 
 checkbox11 = customtkinter.CTkCheckBox(master=frame5, text="CTkCheckBox", command=checkbox_event, onvalue="on", offvalue="off")
-checkbox11.grid(row=4, column=1,padx=20, pady=10)
+checkbox11.grid(row=4, column=1,padx=20, pady=(10,13))
 
 checkbox12 = customtkinter.CTkCheckBox(master=frame5, text="CTkCheckBox", command=checkbox_event, onvalue="on", offvalue="off")
-checkbox12.grid(row=4, column=2,padx=20, pady=10)
+checkbox12.grid(row=4, column=2,padx=20, pady=(10,13))
 
 label_other_skill = customtkinter.CTkLabel(master=frame5,text="Other Skills",anchor="w",width=120,font=("Arial",17))
-label_other_skill.grid(row=5, column=0, padx=20, pady=8)
-textbox_other_skill = customtkinter.CTkTextbox(master=frame5,width=450,height=5,font=("Arial",17))
-textbox_other_skill.grid(row=5, column=1, columnspan=2, padx=(10,20), pady=(10,15))
+label_other_skill.grid(row=5, column=0, padx=20, pady=8, sticky="n")
+textbox_other_skill = customtkinter.CTkTextbox(master=frame5,width=450,height=65,font=("Arial",17))
+textbox_other_skill.grid(row=5, column=1, columnspan=2, padx=(10,20), pady=5)
+
+label_activity = customtkinter.CTkLabel(master=frame5,text="Activities",anchor="w",width=120,font=("Arial",17))
+label_activity.grid(row=6, column=0, padx=20, pady=8, sticky="n")
+textbox_activity = customtkinter.CTkTextbox(master=frame5,width=450,height=65,font=("Arial",17))
+textbox_activity.grid(row=6, column=1, columnspan=2, padx=(10,20), pady=(10,15))
 
 #------------------------------------------------------------------------------------------------------------------------------
 frame6 = customtkinter.CTkFrame(master=root,corner_radius=10)
-frame6.grid(row=0, column=2, padx=20, pady=20,rowspan=2, sticky="new")
+frame6.grid(row=1, column=2, padx=20, pady=(10,20), rowspan=2, sticky="new")
 
 label_skill = customtkinter.CTkLabel(master=frame6,text="Interests",fg_color=("#68aced","#1f538d"),width=320,height=30,corner_radius=8,font=("Arial",20))
 label_skill.grid(row=0, column=0, columnspan=2, padx=20, pady=(20,5))
@@ -217,11 +244,11 @@ checkbox23 = customtkinter.CTkCheckBox(master=frame6, text="CTkCheckBox", comman
 checkbox23.grid(row=5, column=1,padx=20, pady=10)
 
 frame7 = customtkinter.CTkFrame(master=root,corner_radius=10)
-frame7.grid(row=2, column=2, padx=20, pady=20, sticky="sew")
+frame7.grid(row=3, column=2, padx=20, pady=20, sticky="sew")
 
-sub_button = customtkinter.CTkButton(master=frame7,width=320,height=50,border_width=0, corner_radius=8,text="Submit")
+sub_button = customtkinter.CTkButton(master=frame7,width=320,height=50,border_width=0, corner_radius=8,text="Submit",font=("Arial",17))
 sub_button.grid(row=0, column=0, padx=20, pady=10,columnspan=2)
-home_button = customtkinter.CTkButton(master=frame7, width=320,height=50,border_width=0,corner_radius=8,text="Home")
+home_button = customtkinter.CTkButton(master=frame7, width=320,height=50,border_width=0,corner_radius=8,text="Home",font=("Arial",17))
 home_button.grid(row=1, column=0, padx=20, pady=10,columnspan=2)
 
 
