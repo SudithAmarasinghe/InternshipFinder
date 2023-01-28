@@ -1,3 +1,4 @@
+import numbers
 from tkinter import *
 import customtkinter
 import messagebox
@@ -25,32 +26,43 @@ def signup_user():
 
     else:
         try:
-            con = pymysql.connect(host='localhost', user='root', password='', database='internship database')
+            con = pymysql.connect(host='localhost', user='root', password='')
             mycursor = con.cursor()
         except:
             messagebox.showerror('Error','DataBase connectivity Issue, please Try Again')
             return
+        try:
+            query = "CREATE DATABASE userdata"
+            mycursor.execute(query)
+            query = "USE userdata"
+            mycursor.execute(query)
+            query = "CREATE TABLE data(UserName varchar(50) primary key not null, Password varchar(20))"
+            mycursor.execute(query)
+        except:
+            mycursor.execute("use userdata")
 
-
-        query = "SELECT * FROM `login_data` WHERE UserName=%s"
+        query = "SELECT * FROM `data` WHERE UserName=%s"
         mycursor.execute(query, (entry_1.get()))
 
         row = mycursor.fetchone()
         if row != None:
-            messagebox.showerror('Error', 'Username already exist')
-            clear()
+                 messagebox.showerror('Error', 'Username already exist')
+                 clear()
         else:
-            query = "INSERT INTO `login_data`(`UserName`, `Password`) VALUES (%s,%s )"
-            mycursor.execute(query, (entry_1.get(), entry_2.get()))
-            con.commit()
-            con.close()
-            messagebox.showinfo('Success', 'Registration is Successful!')
-            clear()
-            signup_window.destroy()
-            import custom
+              query = "INSERT INTO `data`(`UserName`, `Password`) VALUES (%s,%s )"
+              mycursor.execute(query, (entry_1.get(), entry_2.get()))
+              con.commit()
+              con.close()
+              messagebox.showinfo('Success', 'Registration is Successful!')
+              clear()
+              signup_window.destroy()
+              import login
 
 def login():
         import main
+
+#def password_Validate():
+   # if entry_2.get
 
 def clear():
     entry_1.delete(0,20)
