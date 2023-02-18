@@ -5,6 +5,7 @@ import pymysql
 
 
 
+
 root=Tk()
 root.title('Login')
 root.geometry('925x500+300+200')
@@ -32,7 +33,11 @@ def signin():
         if row == None:
             messagebox.showerror('Error', 'Invalid username or password')
         else:
-            messagebox.showerror('Success','Login is successful')
+            import SignIn
+
+def clear():
+    user.get().delete(0,20)
+
 
 
 
@@ -72,7 +77,7 @@ def on_leave(e):
     name=code.get()
     if name=='':
         code.insert(0,'Password')
-code = Entry(frame,width=25,fg='black',border=0,bg="white",font=('Microsoft YaHei UI Light',11))
+code = Entry(frame,width=25,fg='black',border=0,bg="white",font=('Microsoft YaHei UI Light',11),show='*')
 code.place(x=30,y=150)
 code.insert(0,'Password')
 code.bind('<FocusIn>', on_enter)
@@ -88,4 +93,6 @@ label.place(x=75,y=270)
 sign_up= Button(frame,width=6,text='Sign up',border=0,bg='white',cursor='hand2',fg='#68aced',command=signup)
 sign_up.place(x=215,y=270)
 root.mainloop()
+
+
 
